@@ -18,6 +18,10 @@
 			    "investors": [2,1,5,3]
 			}
  5.  http://localhost:8080/clients/4 (PUT method) - Edits a client
+ 
+ ### Start the application
+ 1. Import the project in an IDE and run the application as springBoot App
+ 2. Access the above mentioned API's from postman app or using curl
 
 # UIClient
 
@@ -26,10 +30,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
