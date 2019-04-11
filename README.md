@@ -27,19 +27,20 @@
   1. Create a db called 'invest'
   2. Run below insert commands to load sample data
   	#### inser script:
-		 db.clients.insertMany([{ "_id" : "1", "name" : "Cli 1", "description" : "cli 1", "investors" : [ 1, 2, 3 ]},
+	
+                        db.clients.insertMany([{ "_id" : "1", "name" : "Cli 1", "description" : "cli 1", "investors" : [ 1, 2, 3 ]},
 			{ "_id" : "2", "name" : "Cli 2", "description" : "cli 2", "investors" : [ 3, 2, 4 ]},
 			{ "_id" : "3", "name" : "Cli 2", "description" : "1", "investors" : [ 2 ]},
 			{ "_id" : "31", "name" : "22", "description" : "22", "investors" : [ 4, 5 ]},
 			{ "_id" : "4", "name" : "C-4", "description" : "4", "investors" : [ 2 ]}])
 
-		db.funds.insertMany([{"_id" : "22", "name" : "F2", "value":23},
+			db.funds.insertMany([{"_id" : "22", "name" : "F2", "value":23},
 			 {"_id" : "11", "name" : "F1", "value":12},
 			 {"_id" : "33", "name" : "F3", "value":66},
 			 {"_id" : "44", "name" : "F4", "value":47},
 			 {"_id" : "55", "name" : "F5", "value":99}])
  
-		 db.investors.insertMany([{ "_id" : "1", "name" : "F1", "description" : "F1", "funds" : [ 33, 22 ] },
+		 	db.investors.insertMany([{ "_id" : "1", "name" : "F1", "description" : "F1", "funds" : [ 33, 22 ] },
 			{ "_id" : "2", "name" : "F2", "description" : "F2", "funds" : [ 33, 11 ] },
 			{ "_id" : "3", "name" : "F3", "description" : "F3", "funds" : [ 22, 11 ] },
 			{ "_id" : "5", "name" : "F5", "description" : "F5", "funds" : [ 55, 44 ] }])
