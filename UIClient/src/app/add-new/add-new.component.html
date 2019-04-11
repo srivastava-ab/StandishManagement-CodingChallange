@@ -1,0 +1,48 @@
+<h1>Add a client</h1>
+
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit(messageForm.value)">
+
+  <div *ngIf="valid">
+  <h5 *ngIf="success=='success'" classs="error">Client created!!</h5>
+</div>
+  
+  <h5 *ngIf="!valid" class="error">Form not valid!!</h5>
+
+  <label>
+      ID:
+      <input type="text" formControlName="_id">
+      <div *ngIf="submitted && messageForm.controls._id.errors" class="error">
+        <div *ngIf="messageForm.controls._id.errors.required">Client name is required</div> 
+      </div>
+    </label>
+
+    <label>
+        Name:
+        <input type="text" formControlName="name">
+        <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+          <div *ngIf="messageForm.controls.name.errors.required">Client name is required</div>
+        </div>
+      </label>
+
+  <label>
+    Description:
+    <input type="text" formControlName="description">
+    <div *ngIf="submitted && messageForm.controls.description.errors" class="error">
+      <div *ngIf="messageForm.controls.description.errors.required">Client description is required</div>
+    </div>
+  </label>
+
+  <label>
+      Investor:
+      <input type="text" formControlName="investors" pattern="(\d+)(,\s*\d+)*">
+      <!-- <div *ngIf="investors.touched && investors.errors"></div> -->
+
+      <div *ngIf="submitted && messageForm.controls.investors.errors" class="error">
+        <div *ngIf="messageForm.controls.investors.errors.required">Client investors are required</div>
+        
+      </div>
+    </label>
+
+   <input type="submit" value="Add new" class="cta" > <!--[disabled]="!messageForm.valid" -->
+
+</form>

@@ -1,0 +1,35 @@
+header {
+    background: rgb(17, 149, 236);
+
+    .logo {
+        font-weight: bold;
+    }
+
+    nav {
+        justify-self: auto;
+        width: 333%;
+    
+        ul {
+            list-style-type: none;
+            margin: 0; padding: 0;
+
+            li {
+                float: left;
+
+                a {
+                    padding: 1em;
+                    text-transform: uppercase;
+                    font-size: 1em;
+
+                    &:hover {
+                        background: rgb(132, 195, 238);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.class-name{
+    background:rgb(132, 195, 238);
+}

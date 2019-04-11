@@ -1,0 +1,61 @@
+ {
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/root.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "required": [
+      "_id",
+      "name",
+     "description",
+     "investors"
+   ],
+   "properties": {
+     "_id": {
+       "$id": "#/properties/_id",
+       "type": "string",
+       "title": "The _id Schema",
+       "default": "",
+       "examples": [
+         "1"
+       ],
+       "pattern": "^(.*)$"
+     },
+     "name": {
+       "$id": "#/properties/name",
+       "type": "string",
+       "title": "The Name Schema",
+       "default": "",
+       "examples": [
+         "ZZ"
+       ],
+       "pattern": "^(.*)$"
+     },
+     "description": {
+       "$id": "#/properties/description",
+       "type": "string",
+       "title": "The Description Schema",
+       "default": "",
+       "examples": [
+         "ZZ"
+       ],
+       "pattern": "^(.*)$"
+     },
+     "investors": {
+       "$id": "#/properties/investors",
+       "type": "array",
+       "title": "The Investors Schema",
+       "items": {
+         "$id": "#/properties/investors/items",
+         "type": "integer",
+         "title": "The Items Schema",
+         "default": 0,
+         "examples": [
+           2,
+           1,
+           4
+         ]
+       }
+     }
+   }
+ }
