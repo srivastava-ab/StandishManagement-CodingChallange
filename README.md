@@ -33,7 +33,7 @@
  ### Mongo DB set up
   1. Create a db called 'invest'
   2. Run below insert commands to load sample data
-  	#### inser script:
+  #### inser script:
 	
                         db.clients.insertMany([{ "_id" : "1", "name" : "Cli 1", "description" : "cli 1", "investors" : [ 1, 2, 3 ]},
 			{ "_id" : "2", "name" : "Cli 2", "description" : "cli 2", "investors" : [ 3, 2, 4 ]},
