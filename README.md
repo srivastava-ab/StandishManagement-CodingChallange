@@ -1,3 +1,10 @@
+# Technologies used:
+
+ 1. Build: Maven
+ 2. Web Services Framework: Spring Boot
+ 3. MongoDB Interface: MongoDB Repository
+ 4. Unit Test: JUnit Requirements: Java 8, Maven, MongoDB
+
 # REST api's
 
 ## Assumptions
