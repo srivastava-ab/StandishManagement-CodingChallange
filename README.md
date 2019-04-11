@@ -1,8 +1,10 @@
 # REST api's
 
-# Guides
-start the spring boot server using any IDE
-
+## Assumptions
+ 1. Every client has "_id", "name", "desc" and investor[] (array of investors)
+ 2. Every invsetor has "_id", "name", "desc" and funds[] (array of funds)
+ 3. Every fund has "_id", "name" and "fund value"
+ 
 ### API's
  1. http://localhost:8080/clients - lists all the clients
  2. http://localhost:8080/clients/{id} - Returns the list of investors in client
