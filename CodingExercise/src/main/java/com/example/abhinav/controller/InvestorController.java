@@ -40,14 +40,13 @@ public class InvestorController {
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@CrossOrigin(origins = "http://localhost:4200")
-	public ResponseEntity<List<Investor>> getInvestorById(@PathVariable("id") int[] id) {
+	public ResponseEntity<Object> getInvestorById(@PathVariable("id") int[] id) {
 		logger.info("Getting investor with id {}", id);
 		List<Investor> list = new ArrayList<>();
 		for (int i : id) {
 			Investor investor = investRepo.findBy_id(String.valueOf(i));
 			list.add(investor);
 		}
-		// Investor investor = fundsRepo.findBy_id(id);
-		return new ResponseEntity<List<Investor>>(list, HttpStatus.OK);
+		return new ResponseEntity<Object>(list.get(0)!= null?list:"Id not present", HttpStatus.OK);
 	}
 }

@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -66,15 +67,16 @@ public class ClientController {
 	 * 
 	 * @param id
 	 * @param clients
+	 * @return 
 	 * 
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	@CrossOrigin(origins = "http://localhost:4200")
-	public void updateClient(@PathVariable("id") String id, @RequestBody Client clients) {
+	public ResponseEntity<Object> updateClient(@PathVariable("id") String id, @RequestBody Client clients) {
 		logger.info("Updating client id {}", id);
 		clients.set_id(id);
-		System.out.println(clients.get_id() + " :: " + clients.getName() + " :: " + clients.getInvestors());
-		clientRepo.save(clients);
+		logger.info((clients.get_id() + " :: " + clients.getName() + " :: " + clients.getInvestors()));
+		return new ResponseEntity<Object>(clientRepo.save(clients), HttpStatus.CREATED);
 	}
 
 	/**
@@ -90,9 +92,9 @@ public class ClientController {
 		Client cli = new Client();
 		try {
 			cli = clientRepo.insert(clients);
-		} catch (Exception e) {
-			throw new ClientException(cli._id);
+		} catch (DuplicateKeyException e) {
+			throw new DuplicateKeyException("Duplicate ID");
 		}
-		return new ResponseEntity<Object>(cli, HttpStatus.OK);
+		return new ResponseEntity<Object>(cli, HttpStatus.CREATED);
 	}
 }

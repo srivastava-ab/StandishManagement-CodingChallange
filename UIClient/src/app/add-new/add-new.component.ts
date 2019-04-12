@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective } from '@angular/forms';
 import { DataService } from '../data.service';
 import { investValidator } from './../validators/investorValidator';
 
@@ -16,6 +16,7 @@ export class AddNewComponent implements OnInit {
   submitted = false;
   formObj: Object;
   valid: boolean = true;
+  error: String;
 
   constructor(private formBuilder: FormBuilder, private data: DataService) { }
 
@@ -28,9 +29,11 @@ export class AddNewComponent implements OnInit {
     });
   }
 
-  onSubmit(formObj) {
+  onSubmit(formObj, formDirective: FormGroupDirective) {
+    this.error = '';
+    this.valid=true;
     this.submitted = true;
-    var str = formObj['investors'];
+    var str = formObj['investors'] + +'';
     var temp = new Array();
     if (str == '') {
       return;
@@ -46,11 +49,19 @@ export class AddNewComponent implements OnInit {
         this.success = 'success';
       },
         error => {
-          console.log("Error", error);
+          this.error = error.error.message;
+          console.log("Error11-->", error);
+
+          console.log("Error-->", error.error.message);
           this.valid = false;
         }
       );
     }
+    this.messageForm.clearAsyncValidators;
+    this.messageForm.clearValidators;
+    this.messageForm.reset
+    
+    console.log("--> " + this.error);
     this.valid = false;
     if (this.messageForm.invalid) {
       return;

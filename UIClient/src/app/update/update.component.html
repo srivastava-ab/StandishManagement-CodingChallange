@@ -6,7 +6,9 @@
     <h5 *ngIf="success=='success'" classs="error">Client updated!!</h5>
   </div>
     
-    <h5 *ngIf="!valid" class="error">Form not valid!!</h5>
+    <h5 *ngIf="!valid && error==true"  class="error">{{error}}!!</h5>
+
+    <h5 *ngIf="!valid"  class="error">Check investors!!</h5>
 
   <label>
       ID:

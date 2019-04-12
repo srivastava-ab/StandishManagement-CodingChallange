@@ -48,7 +48,7 @@ public class ClientControllerTest {
 
 	@After
 	public void after() {
-		cliRepo.deleteAll();
+		//cliRepo.deleteAll();
 	}
 
 	/**
