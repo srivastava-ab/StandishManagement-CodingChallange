@@ -1,19 +1,20 @@
+
 package com.example.abhinav.models;
 
 import javax.validation.constraints.NotEmpty;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
+
 /**
- * Model class for investors
+ * Model class for testing Client
  * 
  * @author Abhinav
  *
  */
-@Document(collection = "investors")
-public class Investor {
-
+@Document(collection = "test")
+public class TestClient {
 	@Id
 	@NotEmpty(message = "Id is a required field")
 	public String _id;
@@ -21,32 +22,38 @@ public class Investor {
 	public String name;
 	@NotEmpty(message = "Desc is a required field")
 	public String description;
-	@NotEmpty(message = "Funds is a required field")
-	public int[] funds;
-	
-	
+	@NotEmpty(message = "Investors is a required field")
+	public int[] investors;
+
 	public String get_id() {
 		return _id;
 	}
+
 	public void set_id(String _id) {
 		this._id = _id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int[] getFunds() {
-		return funds;
+
+	public int[] getInvestors() {
+		return investors;
 	}
-	public void setFunds(int[] funds) {
-		this.funds = funds;
+
+	public void setInvestors(int[] investors) {
+		this.investors = investors;
 	}
 }

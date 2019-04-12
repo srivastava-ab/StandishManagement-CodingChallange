@@ -10,7 +10,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 /**
- * @author grtab
+ * Model class of Client 
+ * 
+ * @author Abhinav
  *
  */
 @Document(collection = "clients")

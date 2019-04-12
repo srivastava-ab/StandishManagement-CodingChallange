@@ -1,22 +1,21 @@
 <div class="wrapper">
   <div class="one">
     <ul *ngIf="users">
-        <h1>Clients</h1>
-      <li *ngFor="let user of users"  >
-          <a (click)="test1(user)"><img src="../../assets/baseline-edit-24px.svg" alt=""></a>
-        <p (click)="test(false); getInvestorsById(user.investors)">
+      <h1>Clients</h1>
+      <li *ngFor="let user of users">
+        <a (click)="edit(user)"><img src="../../assets/baseline-edit-24px.svg" alt=""></a>
+        <p (click)="resetCol(false); getInvestorsById(user.investors)">
           Name:&nbsp;{{ user.name }}<br>
           Desc:&nbsp;{{ user.description }}<br>
           Investors:&nbsp;{{ user.investors }}</p>
-          
+
       </li>
     </ul>
   </div>
   <div class="two">
     <ul *ngIf="investors">
-        <h2>Investors </h2>
-      <li *ngFor="let cli of investors" (click)="test(true); getFundsById(cli.funds)">
-        <!-- <img [src]="user.avatar"> -->
+      <h2>Investors </h2>
+      <li *ngFor="let cli of investors" (click)="resetCol(true); getFundsById(cli.funds)">
         <p>
           ID:&nbsp;{{cli._id}}<br>
           Name:&nbsp;{{cli.name}}<br>
@@ -26,9 +25,9 @@
     </ul>
   </div>
 
-  <div class="three" *ngIf="flag" >
+  <div class="three" *ngIf="flag">
     <ul *ngIf="funds">
-        <h2>Funds</h2>
+      <h2>Funds</h2>
       <li *ngFor="let fund of funds">
         <!-- <img [src]="user.avatar"> -->
         <p>Funds&nbsp;ID:&nbsp;{{ fund._id}}<br>

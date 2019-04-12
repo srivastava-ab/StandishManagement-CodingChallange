@@ -20,6 +20,7 @@ export class AddNewComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private data: DataService) { }
 
+  // Render the initial form
   ngOnInit() {
     this.messageForm = this.formBuilder.group({
       _id: ['', Validators.required],
@@ -29,6 +30,7 @@ export class AddNewComponent implements OnInit {
     });
   }
 
+  // makes a service call to POST method api to save the client to db
   onSubmit(formObj, formDirective: FormGroupDirective) {
     this.error = '';
     this.valid=true;

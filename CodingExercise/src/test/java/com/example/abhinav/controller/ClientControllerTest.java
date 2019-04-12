@@ -11,10 +11,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import com.example.abhinav.models.Client;
+import com.example.abhinav.models.TestClient;
 
 /**
- * @author grtab
+ * @author Abhinav
  *
  */
 @RunWith(SpringRunner.class)
@@ -24,31 +24,31 @@ public class ClientControllerTest {
 	@Autowired
 	TestRepository cliRepo;
 
-	List<Client> list = new ArrayList<>();
+	List<TestClient> list = new ArrayList<>();
 
 	/**
 	 * 
-	 * Creates 10 client objects and save it in test collection Also, these client
+	 * Creates 2 client objects and save it in test collection Also, these client
 	 * obj's are added to list for further use
 	 * 
 	 */
 	@Before
 	public void before() {
 		int[] arr = { 1, 2 };
-		for (int i = 0; i < 10; i++) {
-			Client clientToTest = new Client();
+		for (int i = 0; i < 2; i++) {
+			TestClient clientToTest = new TestClient();
 			clientToTest.setInvestors(arr);
 			clientToTest.set_id(String.valueOf(i));
-			clientToTest.setDescription("Test " + i);
+			clientToTest.setDescription("TestClient " + i);
 			clientToTest.setName("TestName " + i);
-			Client t = cliRepo.save(clientToTest);
+			TestClient t = cliRepo.save(clientToTest);
 			list.add(clientToTest);
 		}
 	}
 
 	@After
 	public void after() {
-		//cliRepo.deleteAll();
+		cliRepo.deleteAll();
 	}
 
 	/**
@@ -60,12 +60,12 @@ public class ClientControllerTest {
 	@Test
 	public void testCreateClient() throws Exception {
 		int[] arr = { 1, 3 };
-		Client clientToTest = new Client();
+		TestClient clientToTest = new TestClient();
 		clientToTest.setInvestors(arr);
 		clientToTest.set_id("100");
-		clientToTest.setDescription("Test 100");
+		clientToTest.setDescription("TestClient 100");
 		clientToTest.setName("TestName 100");
-		Client t = cliRepo.save(clientToTest);
+		TestClient t = cliRepo.save(clientToTest);
 		assertTrue(cliRepo.existsById("100"));
 	}
 
@@ -77,7 +77,7 @@ public class ClientControllerTest {
 	@Test
 	public void testGetClientById() throws Exception {
 		assertFalse(cliRepo.existsById("13"));
-		assertTrue(cliRepo.existsById("9"));
+		assertTrue(cliRepo.existsById("1"));
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class ClientControllerTest {
 	 */
 	@Test
 	public void testFindAllClients() throws Exception {
-		List<Client> actualList = cliRepo.findAll();
+		List<TestClient> actualList = cliRepo.findAll();
 		for (int i = 0; i < list.size(); i++) {
 			assertTrue(list.get(i).getName().equals(actualList.get(i).getName()));
 			assertTrue(list.get(i).get_id().equals(actualList.get(i).get_id()));

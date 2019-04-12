@@ -21,6 +21,7 @@ export class UpdateComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private data: DataService) { }
 
+  // Renders the form and load the detail of the client obj on startup
   ngOnInit() {
 
     this.formObj = JSON.parse(sessionStorage.getItem('updateID'));
@@ -35,6 +36,8 @@ export class UpdateComponent implements OnInit {
 
   }
 
+
+  // Makes a service call to put method api and updates the client object
   onUpdate(formObj1) {
     this.submitted = true;
 
